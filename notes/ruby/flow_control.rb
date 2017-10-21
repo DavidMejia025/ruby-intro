@@ -1,4 +1,4 @@
-# FLujo control es establecer dependiendo de condiciones que debe hacer el programa
+# Flujo control es establecer dependiendo de condiciones que debe hacer el programa
 
 
 
@@ -7,6 +7,9 @@
 num1 = 9.0
 num2 = 10
 str = nil
+
+num = 0
+num = 2
 
 # < > <= >= == != && ||
 
@@ -25,24 +28,55 @@ str = nil
 # (false && true) false
 # (false && false)  false
 
+sun = true
+sleep = false
+hunger = false
+lazy = hunger || !sleep
 
+
+unless
+end
+
+if hunger || !sleep
+  puts 'Voy al gimnasio'
+elsif !sleep
+  puts 'Dormir'
+elsif hunger
+  puts "Comer"
+end
+
+# Guardian clauses
+
+blah = 1 if hunger
+
+puts "voy al gimnasio" if hunger
+puts "Dormir" unless sleep
+
+
+
+
+
+
+
+num = 3.9
+num2 = 2
 
 # falsy , thruty
-# if num1 <= num2
-#   if num1 == num2
-#     puts 'si num1 es o igual a num2 '
-#   else
-#     puts 'si num1 es menor a num2'
-#   end
-#   puts 'Estoy adentro del if'
-#   if num1.class == Float
-#     puts 'Si num1 es menor o igual a num2 i ademas es un FLoat'
-#   end
-# elsif num1.class == Integer
-#   puts 'Si num1 es mayor a num y es in Integer'
-# else
-#   puts 'nada de lo anterior se cumple'
-# end
+if num1 <= num2
+  if num1 == num2
+    puts 'si num1 es o igual a num2 '
+  else
+    puts 'si num1 es menor a num2'
+  end
+  puts 'Estoy adentro del if'
+  if num1.class == Float
+    puts 'Si num1 es menor o igual a num2 i ademas es un FLoat'
+  end
+elsif num1.class == Integer
+  puts 'Si num1 es mayor a num y es in Integer'
+else
+  puts 'nada de lo anterior se cumple'
+end
 
 
 if 3 != 4 && !("pedro" == "juan" || 26 > 10)
@@ -62,7 +96,7 @@ else
 
 end
 
-# Guard clause
+# Guard clause ||
 
 customer_would_like_coffee? = true
 
@@ -88,9 +122,7 @@ customer_would_like_coffee? ? puts "Preparar cafe" : puts "Naranjas"
 
 hour = 15
 
-
-
-case house
+case hour
 when hour < 12
     puts "Good Morning"
 when hour > 12 && hour < 17
@@ -104,12 +136,21 @@ end
 
 
 message = if hour < 12
-  'Good Morning'
+ 'Good Morning'
 elsif hour > 12 && hour < 17
   "Good Afternoon"
 else
   "Good Evening"
 end
+
+puts message
+
+
+# El operador Ternario || Ternary operator
+
+hour = 10
+
+message = hour > 12 ? "PM" : "AM"
 
 if condition
 

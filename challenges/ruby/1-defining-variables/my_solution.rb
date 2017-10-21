@@ -5,13 +5,6 @@
  # 4.guardar
  # 4.correr el archivo en rspec
 
-
-
-# Tu solucion abajo
-first_name="Angie";
-last_name="Vanegas";
-age=30;
-
 # Pruebas NO LAS BORRES
 
 

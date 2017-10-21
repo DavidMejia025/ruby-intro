@@ -19,7 +19,12 @@ str_largo = str1 + " " + str2
 
 # Interpolacion
 
-str_largo = "#{str1} #{str2} pepito mi edad es #{3 * 4} nueva linea"
+name = 'Juan'
+
+saludo = "Hola #{name}"
+
+#
+sr_largo = "#{str1} #{str2} pepito mi edad es #{3 * 4} nueva linea"
 
 # puts str_largo
 # print str_largo
@@ -33,7 +38,7 @@ str6['gusta'] = 'encanta'
 
 int = 5
 num = 8
-div = num / 3
+div = num.to_f / 3
 
 #PEMDAS
 
@@ -43,11 +48,28 @@ p sum = 3 * (4 + 5) # 27
 
 # Booleano
 
+true
+false
+
 num1 = 1
 num2 = 2
 
 # <, >, <=, >=, !=, ==, &&, ||
 result = num1 > num2
+
+# True tables
+
+true && true = true
+true && false = false
+false && false = false
+true || false = true
+true || true = true
+false || false = false
+
+!true = false
+!false = true
+
+false = (true && false)
 
 num = true
 
@@ -64,7 +86,6 @@ num = true
 # str1 = 'con las palabras "hola mundo" creo ruby'
 
 # # Escapando caracteres
-
 # str1 = 'Y con las palabras "vamos pa\' lante" creo Ruby'
 
 # puts str1

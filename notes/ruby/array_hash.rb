@@ -12,6 +12,7 @@ person = {
 persons = {
   name: {name2: 'juan'}
 }
+
 students = {
   diana: {
     name: 'diana',
@@ -32,6 +33,7 @@ students = {
     mentor_id: 3
   }
 }
+
 make_it[:mentors][0][:id]
 make_it = {
   mentors: [{id: 1, name: 'juan', age: 56}, {id: 0, name: 'german', age: 432}, ],
