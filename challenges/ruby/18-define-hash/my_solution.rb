@@ -1,9 +1,23 @@
 # Define a Hash
+=begin
+Define una variable llamada `my_info` que sea igual a un 
+`Hash` con las siguientes llaves:
 
+* `:first_name`
+* `:last_name`
+* `:hometown`
+* `:age`
+
+Usa tu propia informacion personal para llenar los valors 
+de las llaves. Asugurate de que `:age` sea un integer
+ positivo y el resto sean `Strings` no vacias.
+
+Luego accede a los valores de cada llave dentro del hash. 
+Imprime los valores de cada llave en la consola.
+=end
 # Tu solucion abajo:
-
-
-
+  my_info = {first_name: "David", last_name: "Mejia", hometown: "Bogota", age: 29}
+  puts ("#{my_info[:first_name]}-my_info[:last_name]}, my_info[:hometown]}my_info[:age]}")
 # Pruebas NO LAS BORRES
 
 

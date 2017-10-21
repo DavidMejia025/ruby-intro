@@ -1,53 +1,29 @@
-class CreditCard
-
- def initialize(num)
-   @num = num.to_s.split("").map{|x| x.to_i}
-   if @num.length != 16
-     raise ArgumentError.new ("The card Number most 16 digits long")
-   end
- end
-
- def double
-   @num_double = @num.each_with_index.map do |value, index|
-     if (index+1).odd?
-       value*2
-     else
-       value
-     end
-   end
- end
-
- def break
-   self.double
-   @num_double.map! {|x| x.to_s}
-   @num_double.map! {|num| num.length >1? num.split("") : num}
-   @num_double
- end
-
-  def sum
-    self.double
-    self.break
-    @num_sum = @num_double.flatten.reduce(:+)
-  end
-
-  def valid
-    if @num_sum % 10 == 0
-      true
-    else
-      false
-    end
-  end
-
- def check_card
-   self.double
-   self.sum
-      sel.valid
- end
-
-end
 
 # 2. Solucion con Refactor
 
 
+def multiply_2 (creditCard)
+  creditCard.to_s
+  new_creditCard = creditCard.to_s
+  new_creditCard = new_creditCard.split('').map(&:to_i)
+  next_creditCard = []
+  new_creditCard.each do |item|
+  	if item.odd?
+  		 next_creditCard << item * 2
+  	else
+  		next_creditCard << item
+  	end
+  end
+  new_creditCard = new_creditCard.map do |item|
+  	if item.odd?
+  		  item * 2
+  	else
+  		 item
+  	end
+  end
+  next_creditCard
+end
+
+p multiply_2(1234123434564589)
 
 ###### DRIVER CODE #########
