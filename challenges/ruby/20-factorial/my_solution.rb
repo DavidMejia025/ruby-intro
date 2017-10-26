@@ -13,25 +13,24 @@ factorial(5) == 5 * 4 * 3 * 2 * 1 == 120
 
 El factorial de `0` esta definido como `1`.
 
-Mira [Factorial en Wikipedia](http://en.wikipedia.org/wiki/Factorial) para mas informacion.
+Mira [Factorial en Wikipedia](http://en.wikipedia.org
+/wiki/Factorial) para mas informacion.
 =end
 # Tu solucion abajo:
 def factorial(num)
-	factor = [1]
-	fact = 1
+	factor = 1
+	fact = [0]
 	if num == 0
 		factor
 	else
-		num.times do |iter|
-			fact << iter+1
-			p fact
-			p iter
+		num.times do |i|
+			fact[i] = i+1
 		end
-
-		fact.each do |item|
-			factor = fact * item
+		p fact
+		(num-1).times do |i|
+			factor = factor * fact[i+1]
 		end
-		factor = factor-1
+		factor
 	end
 end
-p factorial(10)
+p factorial(5)
