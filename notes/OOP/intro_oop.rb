@@ -1,78 +1,121 @@
 require 'pry'
 
-# OOP
+# # OOP
 
-# Facilmente mantenible en el tiempo
-# Modelar el mundo en clases
-# Organizado
+# # Facilmente mantenible en el tiempo
+# # Modelar el mundo en clases
+# # Organizado
 
 
-# Propiedades del Perro
-# Comportamientos del Perro
+# # Propiedades del Perro
+# # Comportamientos del Perro
 
-# Fabrica || Plano
-class Dog
-  attr_reader :breed, :size, :age, :sex
-  attr_writer :size
-  attr_accessor :color
+# class Mammal
+#   def initialize
+#     @drinks_milk = true
+#   end
 
-  def initialize(name, breed, size, color, age, sex)
-    @name = name
-    @breed = breed
-    @size = size
-    @color = color
-    @age = age
-    @sex = sex
-  end
+#   def sucks
+#     'Glup glup....'
+#   end
+# end
 
-  # Getters o Readers
-  def name
-    @name
-  end
-  # Setter o writter
-  def name=(new_name)
-    @name = new_name
-  end
 
-  # Metodos de instancias
-  def hungry?
-    if rand(2) == 1
-      true
-    else
-      false
-    end
-  end
 
-  def grow!
-    self.age += 1
-  end
+# # Fabrica || Plano
+# class Dog < Mammal
+#   attr_reader :breed, :size, :age, :sex
+#   attr_writer :size
+#   attr_accessor :color
 
-  def self.party(dogs)
-    "Uuuaua turu #{dogs.first.name} #{dogs.last.name} si fiestaa!!"
-  end
+#   @@dogs = 0
 
-end
+#   def self.dog_count
+#     @@dogs
+#   end
 
-# Syntatic Sugar
+#   def initialize(name, breed, size, color, age, sex)
+#     @name = name
+#     @breed = breed
+#     @size = size
+#     @color = color
+#     @age = age
+#     @sex = sex
+#     @@dogs += 1
+#   end
 
-oliva = Dog.new('oliva','shitzu', 'pequeño', 'blanca', 2, 'hembra')
-ozu = Dog.new('ozu','bulldog frances', 'pequeño', 'negro', 7, 'macho')
-binding.pry
-ozu.name
-ozu.name = 'blah'
+#   # Getters o Readers
+#   def name
+#     @name
+#   end
+#   # Setter o writter
+#   def name=(new_name)
+#     @name = new_name
+#   end
 
-puts oliva.name # => "Oliva"
-puts oliva.name = 'Francisca' # => "Oliva"
-puts oliva.name # => "Francisca"
-puts oliva.breed # => "Oliva"
-puts oliva.size # => "Oliva"
+#   # Metodos de instancias
+#   def hungry?
+#     if rand(2) == 1
+#       true
+#     else
+#       false
+#     end
+#   end
 
-oliva.hungry? # => true || false
-puts oliva.age # => 2
-oliva.grow!
-puts oliva.age # => 3
-puts oliva.bark # => "Woof woof"
-oliva.poop? # => true || false
+#   def grow!
+#     self.age += 2
+#   end
+
+#   def self.party(dogs)
+#     "Uuuaua turu #{dogs.first.name} #{dogs.last.name} si fiestaa!!"
+#   end
+
+
+#   def to_s
+#     "Mi nombro es #{@name} y tengo #{@age} años"
+#   end
+
+# end
+
+# # Syntatic Sugar
+
+# oliva = Dog.new('oliva','shitzu', 'pequeño', 'blanca', 2, 'hembra')
+# ozu = Dog.new('ozu','bulldog frances', 'pequeño', 'negro', 7, 'macho')
+
+# ozu.name
+# ozu.name = 'blah'
+
+# puts oliva.name # => "Oliva"
+# puts oliva.name = 'Francisca' # => "Oliva"
+# puts oliva.name # => "Francisca"
+# puts oliva.breed # => "Oliva"
+# puts oliva.size # => "Oliva"
+
+# oliva.hungry? # => true || false
+# puts oliva.age # => 2
+# oliva.grow!
+# puts oliva.age # => 3
+# puts oliva.bark # => "Woof woof"
+# oliva.poop? # => true || false
+
+
+# Object
+# Jerarquia de clases
+
+# Herencia
+# DRY (Dont Repeat Yourself)
+  # Mantenible
+# KiSS (Keep it simple stupid)
+
+# Lookup chain
+
+
+
+
+
+
+
+
 
 
 
@@ -360,23 +403,75 @@ oliva.poop? # => true || false
 # # Gran Ejemplo de un sistema
 
 
-# module Hello  # modules agrupa metodos Como comportamientos
-#   def ask
-#     "?"
-#   end
+module Hello  # modules agrupa metodos Como comportamientos
+  def ask
+    "?"
+  end
 
-#   def answer
-#     "!"
-#   end
+  def answer
+    "!"
+  end
 
-#   def smile
-#     ":)"
-#   end
+  def smile
+    ":)"
+  end
 
-#   def weep_with_joy
-#     "boo hoo  :)"
-#   end
-# end
+  def weep_with_joy
+    "boo hoo  :)"
+  end
+end
+
+module MakeIt
+  class Teacher  # Herencia!
+    include Hello  # Los modulos pueden sen incluidos
+
+    attr_reader :name
+    def initialize(args = {})
+      @name = args[:name] || "Nameless Teacher"  # Agregar valores por defecto
+    end
+
+    def program
+      'Estoy programando ....'
+    end
+
+    def to_s
+      super + "  my name is #{name}"
+    end
+  end
+end
+
+module University
+  module Departments
+    class Scinceew
+  end
+
+  class Person
+  end
+
+  class Teacher < University::Person
+    def initialize(name)
+      @name = name
+    end
+
+    def grade
+      'estoy calificando ...'
+    end
+  end
+end
+
+binding.pry
+
+
+german = MakeIt::Teacher.new({name: 'german'})
+# mauricio = University::Teacher.new('Mauricio')
+
+# german.program
+# mauricio.grade
+
+
+
+
+
 
 # module MakeIt  # modules are used to create namespaces
 
@@ -569,7 +664,11 @@ oliva.poop? # => true || false
 
 # C = MakeIt::Bogota::Coach
 
-# sql_expert = C.request_help_on(:sql)
-# dance_expert = C.request_help_on(:samba)
+# # sql_expert = C.request_help_on(:sql)
+# # dance_expert = C.request_help_on(:samba)
 
-# ConsoleHelper.render(sql_expert)
+# # ConsoleHelper.render(sql_expert)
+
+
+
+
