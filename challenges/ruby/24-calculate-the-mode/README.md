@@ -1,9 +1,6 @@
 # Calcula la Moda
 
-## Competencias a aprender
-- Rompe un problema en pequeños pedazos
-- Implementa un metodo basado en pseudocodigo
-- Itera por estructuras para manipular datos
+## Competencias acturas para manipular datos
 - Determina cuando usar un Array o un Hash
 
 ## Resumen:
