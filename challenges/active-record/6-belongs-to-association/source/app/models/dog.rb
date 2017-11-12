@@ -1,6 +1,7 @@
 class Dog < ActiveRecord::Base
   include USGeography
-
+  belongs_to :owner, {:class_name => "Person", :foreign_key => :owner_id}
+  
   validates :name, :license, :owner_id, { :presence => true }
   validates :license, { :uniqueness => true }
   validates :license, format: { with: /\A[A-Z]{2}\-/ }

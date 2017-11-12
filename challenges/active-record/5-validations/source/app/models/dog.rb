@@ -1,6 +1,6 @@
 class Dog < ActiveRecord::Base
   include USGeography
-
+  belongs_to :owner, {:class_name => "Person", :foreign_key => :owner_id}
   # name, license, y owner_id son obligatorios
   validates :name, :license, :owner_id, { :presence => true }
 

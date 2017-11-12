@@ -1,16 +1,16 @@
 class House
   attr_reader :square_feet, :num_bedrooms, :num_baths, :cost
 
-  def initialize(address, square_feet, num_bedrooms = 3, num_baths = 2, cost = 320_000, down_payment = 0.20, sold = false, has_tenants = false)
-    @address = address
-    @square_feet = square_feet
-    @num_bedrooms = num_bedrooms
-    @num_baths = num_baths
-    @cost = cost
-    @down_payment = down_payment
-    @sold = sold
-    @short_sale = short_sale
-    @has_tenants = has_tenants
+  def initialize(options)
+    @address = options[:address]
+    @name = options.fetch([:name]){"Berkeley"}
+    @num_bedrooms = options[:num_bedrooms]
+    @num_baths = options[:num_baths]
+    @cost = options[:cost]
+    @down_payment = options[:down_payment]
+    @sold = options[:sold]
+    @short_sale = options[:short_sale]
+    @has_tenants = options[:has_tenants]
   end
 
   def obscure_address
@@ -34,6 +34,6 @@ end
 # Pon driver code aca para probar que todo este funcionando.
 ###### DRIVER CODE ########
 
-
-
+new_class = House.new({num_baths: 4})
+p new_class
 

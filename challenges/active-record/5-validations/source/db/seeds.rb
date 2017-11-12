@@ -12,7 +12,6 @@ jayda_details = { :name     => "Jayda",
                   :breed    => "Bull Terrier",
                   :owner_id => 1 }
 
-
 tenley = Dog.new(tenley_details)
 tenley.save
 

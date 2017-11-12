@@ -1,73 +1,29 @@
-class Product < ActiveRecord::Base
-  attr_reader :name
-  belongs_to :store
-  # es igual a
+# class Product < ActiveRecord::Base
+#   attr_reader :name
+#   belongs_to :store
+#   # es igual a
+#   def store
+#     Store.find_by(id: self.store_id)
+#   end
+# end
 
-  def store
-    Store.find_by(id: 1)
-  end
-end
+# class Manager < ActiveRecord::Base
+#   has_one :stores
+#   has_many :products, through: :stores
+# end
 
-class Manager < ActiveRecord::Base
-  has_one :stores
-  has_many :products, through: :stores
-end
+# class Store < ActiveRecord::Base
+#   belongs_to :boss
+#   has_many :products
 
-class Store < ActiveRecord::Base
-  belongs_to :boss
-  has_many :products
+#   def boss
+#     Manager.find_by(id: self.manager_id)
+#   end
 
-  store.maneger
-  def boss
-    Manager.find_by(id: self.manager_id)
-  end
-
-  def products
-    Products.where(store_id: self.id)
-  end
-end
-
-# Users
-
-
-
-# esquema Product
-
-# id | store_id
-
-# Esquema Manager
-
-# id
-
-# Esquema store
-
-# id | boss_id
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#   def products
+#     Products.where(store_id: self.id)
+#   end
+# end
 
 class Product
 
@@ -129,9 +85,3 @@ class Store
     Products.where(store_id: self.id)
   end
 end
-
-# id | store_id
-#
-# id
-#
-# id | manager_id

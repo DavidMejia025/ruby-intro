@@ -441,28 +441,28 @@ module MakeIt
 end
 
 module University
-  module Departments
-    class Scinceew
-  end
-
   class Person
+    def hahah
+      puts 'hola'
+    end
   end
 
-  class Teacher < University::Person
+  class Teacher < Person
     def initialize(name)
       @name = name
     end
 
     def grade
       'estoy calificando ...'
-    end
+      end
   end
 end
 
+class Son < University::Person
+end
+
+german = University::Teacher.new({name: 'german'})
 binding.pry
-
-
-german = MakeIt::Teacher.new({name: 'german'})
 # mauricio = University::Teacher.new('Mauricio')
 
 # german.program
